@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.MUM.ComproApplicationForm.Control;
+package edu.MUM.ComproAppForm.Model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -9,7 +9,9 @@
         <h:head>
             <f:facet name="first">
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
-                <title>Application Form</title>
+                <h:outputStylesheet name="./css/default.css"/>
+                <h:outputStylesheet name="./css/cssLayout.css"/>
+                <title>Compro Application Form</title>
             </f:facet>
         </h:head>
 
@@ -18,12 +20,16 @@
             <p:layout fullPage="true">
 
                 <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
-                    Header
+                    <div id="top">
+                    <ui:insert >
+                       
+                         
+                    </ui:insert>
+                        </div>
+                   
                 </p:layoutUnit>
 
-                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
-                    Footer
-                </p:layoutUnit>
+                
 
                 <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
                     <p:menu>
@@ -39,16 +45,16 @@
                 </p:layoutUnit>
 
                 <p:layoutUnit position="center">
-                     <h:form>
+                    <ui:insert name="content">
+                        <h:form>
+                    <p:growl id="growl" sticky="true" showDetail="true"  />
 
-                <p:growl id="growl" sticky="true" showDetail="true"  />
-
-                <p:wizard flowListener="#{edu.MUM.ComproApplicationForm.Control.userWizard.onFlowProcess}" style="alignment-adjust: middle">
+                <p:wizard flowListener="#{userWizard.onFlowProcess}" style="alignment-adjust: middle">
                     <p:tab id="start" title="Start" >
 
                         <p:panel header="Application Overview"  style="alignment-adjust: middle" >
 
-                            <h:panelGrid columns="2" columnClasses="label, value" styleClass="grid" style="font-size: 14px">
+                            <h:panelGrid columns="2" columnClasses="label, value" styleClass="grid" style="font-size: 12px">
 
                             <p>
                                 Thank you for applying for the Master of Science in Computer Science Program.
@@ -229,8 +235,8 @@
                     </p:tab>
 
                 </p:wizard>
-            </h:form>
-
+                    </h:form>
+                    </ui:insert>
                 </p:layoutUnit>
 
             </p:layout>

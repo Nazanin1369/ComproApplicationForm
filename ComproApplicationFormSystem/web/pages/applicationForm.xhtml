@@ -5,21 +5,35 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core">
-    <ui:composition template="./mainTemplate.xhtml">
+    <ui:composition template="./mainTemplate.xhtml" >
         <ui:define name="top">
 
             <div id="header" align="center">
             </div>
-        </ui:define>
+            
 
 
         <ui:define name="content" >
 
+             
+        </ui:define>
             <h:form>
+                <div>
+                     <p:dock position="bottom"  >  
+                <p:menuitem value="Home" icon="/images/dock/home.png" url="#"/>  
+                <p:menuitem value="Music" icon="/images/dock/music.png" url="#"/>  
+                <p:menuitem value="Video" icon="/images/dock/video.png" url="#"/>  
+                <p:menuitem value="Email" icon="/images/dock/email.png" url="#"/>  
+                <p:menuitem value="Portfolio" icon="/images/dock/portfolio.png" url="#"/>  
+                <p:menuitem value="Link" icon="/images/dock/link.png" url="#"/>  
+                <p:menuitem value="RSS" icon="/images/dock/rss.png" url="#"/>  
+                <p:menuitem value="History" icon="/images/dock/history.png" url="#"/>  
+            </p:dock>
+                </div>
 
                 <p:growl id="growl" sticky="true" showDetail="true"  />
 
-                <p:wizard flowListener="#{edu.MUM.ComproApplicationForm.Control.userWizard.onFlowProcess}" style="alignment-adjust: middle">
+                <p:wizard flowListener="#{userWizard.onFlowProcess}" style="alignment-adjust: middle">
                     <p:tab id="start" title="Start" >
 
                         <p:panel header="Application Overview"  style="alignment-adjust: middle" >

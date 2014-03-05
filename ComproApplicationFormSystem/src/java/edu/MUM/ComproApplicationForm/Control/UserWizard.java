@@ -5,6 +5,7 @@
  */
 
 package edu.MUM.ComproApplicationForm.Control;
+import edu.MUM.ComproAppForm.Model.User;
 import java.util.logging.Logger;
 import javax.faces.bean.SessionScoped;
 import javax.faces.application.FacesMessage;
@@ -40,7 +41,7 @@ public class UserWizard {
 	public void save(ActionEvent actionEvent) {
 		//Persist user
 		
-		FacesMessage msg = new FacesMessage("Successful", "Welcome :" + user.getFirstName());
+		FacesMessage msg = new FacesMessage("Successful! " + user.getFirstName() + " your application is submitted.");
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 	
