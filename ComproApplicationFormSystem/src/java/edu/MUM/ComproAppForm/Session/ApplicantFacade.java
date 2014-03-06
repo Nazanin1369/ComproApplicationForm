@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 
-package edu.MUM.ComproAppForm.Model;
+package edu.MUM.ComproAppForm.Session;
 
+import edu.MUM.ComproAppForm.Model.AbstractFacade;
+import edu.MUM.ComproAppForm.Model.Applicant;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

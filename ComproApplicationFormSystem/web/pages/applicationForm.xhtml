@@ -13,7 +13,7 @@
        
       <ui:define name="content">
             
-                         <h:form id="form">
+              <h:form id="form">
                 <h:panelGrid columns="1" style="width: 100%">
                     <p:wizard id="wizard" >
                         <p:tab title="Personal Information" id="personalInfo">
@@ -125,13 +125,19 @@
                                               value="#{applicantController.selected.email}" />
 
                                 <p:commandButton id="submitButton"
-                                                 action="#{applicantController.create}" value="#{bundle.CreateApplicantSaveLink}" 
-                                                 ajax="false"/>
-                                 <br />
-                                <br />
-                                <h:commandLink action="#{applicantController.prepareList}" 
+                                                 action="#{applicantController.create}" value="Save" 
+                                                 ajax="false"/> 
+                               
+                                    
+                                <p:commandButton id="submitbutton" action="#{applicantController.prepareSubmit()}" 
+                                               value="Submit Application"   immediate="true"
+                                              />
+                                <p:commandButton id="showButton" action="#{applicantController.prepareList}" 
                                                value="#{bundle.CreateApplicantShowAllLink}" 
                                                immediate="true"/>
+                                 <br />
+                                <br />
+                               
                             </h:panelGrid>
                         </p:tab>
                     </p:wizard>                   

@@ -1,5 +1,6 @@
 package edu.MUM.ComproAppForm.Model;
 
+import edu.MUM.ComproAppForm.Session.ApplicantFacade;
 import edu.MUM.ComproAppForm.Model.util.JsfUtil;
 import edu.MUM.ComproAppForm.Model.util.PaginationHelper;
 
@@ -23,7 +24,7 @@ public class ApplicantController implements Serializable {
     private Applicant current;
     private DataModel items = null;
     @EJB
-    private edu.MUM.ComproAppForm.Model.ApplicantFacade ejbFacade;
+    private edu.MUM.ComproAppForm.Session.ApplicantFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
@@ -60,6 +61,10 @@ public class ApplicantController implements Serializable {
         return pagination;
     }
 
+    public String prepareSubmit() {
+        
+        return "submitPage";
+    }
     public String prepareList() {
         recreateModel();
         return "viewApplicationForms";

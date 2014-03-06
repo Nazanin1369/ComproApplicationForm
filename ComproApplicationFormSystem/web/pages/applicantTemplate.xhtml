@@ -23,9 +23,12 @@
 
 
             <div id="top">
-                <ui:insert name="top">
+                <ui:insert name="top" >
+                   
+                
                     <img src="../resources/images/footer_logo.png" width="188" height="78" alt="footer_logo"/>
 
+                    
                 </ui:insert>
             </div>
              
@@ -35,20 +38,21 @@
                     <ui:insert name="right"></ui:insert>
                 
              <div id="content" class="right_content">
-                    <ui:insert name="content">Content</ui:insert>
+                    <ui:insert name="content"></ui:insert>
                 </div>
             <p:stack icon="../resources/images/stack.png">
 
                 <p:menuitem value="Logout" icon="../resources/images/logout.png" url="#" />
                 <p:menuitem value="MyStatus" icon="../resources/images/status.png" url="#"/>
-                <p:menuitem value="Home" icon="../resources/images/home.png" url="../pages/applicationForm.xhtml"/>
+                 <p:menuitem value="CreateApplication" icon="../resources/images/form.png" url="../pages/applicationForm.xhtml"/>
+                <p:menuitem value="Home" icon="../resources/images/home.png" url="../pages/ApplicantHome.xhtml"/>
 
             </p:stack>
 
         </ui:insert>
         
         <div id="bottom">
-            <ui:insert name="bottom">Bottom</ui:insert>
+            <ui:insert name="bottom">@2014 Maharishi University of Management</ui:insert>
         </div>
 
     </h:body>
