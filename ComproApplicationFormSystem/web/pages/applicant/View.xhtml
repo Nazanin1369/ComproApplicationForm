@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewApplicantTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewApplicantLabel_id}"/>
+                    <h:outputText value="#{applicantController.selected.id}" title="#{bundle.ViewApplicantTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewApplicantLabel_firstName}"/>
+                    <h:outputText value="#{applicantController.selected.firstName}" title="#{bundle.ViewApplicantTitle_firstName}"/>
+                    <h:outputText value="#{bundle.ViewApplicantLabel_middleName}"/>
+                    <h:outputText value="#{applicantController.selected.middleName}" title="#{bundle.ViewApplicantTitle_middleName}"/>
+                    <h:outputText value="#{bundle.ViewApplicantLabel_lastName}"/>
+                    <h:outputText value="#{applicantController.selected.lastName}" title="#{bundle.ViewApplicantTitle_lastName}"/>
+                    <h:outputText value="#{bundle.ViewApplicantLabel_birthDate}"/>
+                    <h:outputText value="#{applicantController.selected.birthDate}" title="#{bundle.ViewApplicantTitle_birthDate}"/>
+                    <h:outputText value="#{bundle.ViewApplicantLabel_homephone}"/>
+                    <h:outputText value="#{applicantController.selected.homephone}" title="#{bundle.ViewApplicantTitle_homephone}"/>
+                    <h:outputText value="#{bundle.ViewApplicantLabel_mobilephone}"/>
+                    <h:outputText value="#{applicantController.selected.mobilephone}" title="#{bundle.ViewApplicantTitle_mobilephone}"/>
+                    <h:outputText value="#{bundle.ViewApplicantLabel_workphone}"/>
+                    <h:outputText value="#{applicantController.selected.workphone}" title="#{bundle.ViewApplicantTitle_workphone}"/>
+                    <h:outputText value="#{bundle.ViewApplicantLabel_email}"/>
+                    <h:outputText value="#{applicantController.selected.email}" title="#{bundle.ViewApplicantTitle_email}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{applicantController.destroyAndView}" value="#{bundle.ViewApplicantDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewApplicantEditLink}"/>
+                <br />
+                <h:commandLink action="#{applicantController.prepareCreate}" value="#{bundle.ViewApplicantCreateLink}" />
+                <br />
+                <h:commandLink action="#{applicantController.prepareList}" value="#{bundle.ViewApplicantShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewApplicantIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

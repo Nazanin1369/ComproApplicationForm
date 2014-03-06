@@ -1,229 +1,145 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:p="http://primefaces.org/ui"  
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core">
-    <ui:composition template="./mainTemplate.xhtml" >
-        <ui:define name="top">
+      xmlns:p="http://primefaces.org/ui">
 
-            <div id="header" align="center">
-            </div>
+      <ui:composition template="../pages/applicantTemplate.xhtml">
+    <ui:define name="top">
+ <img src="../resources/images/footer_logo.png" width="188" height="78" alt="footer_logo"/>
+    </ui:define>
+
+       
+      <ui:define name="content">
             
+                         <h:form id="form">
+                <h:panelGrid columns="1" style="width: 100%">
+                    <p:wizard id="wizard" >
+                        <p:tab title="Personal Information" id="personalInfo">
+                            <p:panel header="Personal Information">
+                                <p:messages/>
+                                <h:panelGrid columns="2">
 
+                                    <h:outputLabel for="firstName" 
+                                                   value="First Name" 
+                                                   styleClass="requiredLbl"/>
+                                    <h:inputText id="firstName" 
+                                                 label="First Name" 
+                                                 value="#{applicantController.selected.firstName}" 
+                                                 required="true"/>
+                                    <h:outputLabel for="middleName" 
+                                                   value="Middle Name" 
+                                                   styleClass="optionalLbl"/>
+                                    <h:inputText id="middleName" 
+                                                 label="Middle Name" 
+                                                 value="#{applicantController.selected.middleName}"
+                                                 />
+                                    <h:outputLabel for="lastName" 
+                                                   value="Last Name" 
+                                                   styleClass="requiredLbl"/>
+                                    <h:inputText id="lastName" label="Last Name" 
+                                                 value="#{applicantController.selected.lastName}" 
+                                                 required="true"/>
+                                    <h:outputLabel for="birthDate" 
+                                                   value="Date of Birth" 
+                                                   styleClass="optionalLbl"/>
+                                    <p:calendar id="birthDate" 
+                                                value="#{applicantController.selected.birthDate}" 
+                                                showOn="button" 
+                                                navigator="true"/>
+                                </h:panelGrid>
+                            </p:panel>
+                        </p:tab>
+                        <p:tab title="Contact Information" id="phone">
+                            <p:panel header="Contact Information">
+                                <p:messages/>
+                                <h:panelGrid columns="2">
+                                    <h:outputLabel for="E-mail address" 
+                                                   value="E-mail address" 
+                                                   styleClass="requiredLbl"/>
+                                    <p:inputText id="e-mail" label="E-mail"
+                                                 value="#{applicantController.selected.email}" required="true"/>
+                                    <h:outputLabel for="homePhone" 
+                                                   value="Home phone"/>
+                                    <p:inputMask id="homePhone" 
+                                                 mask="(999)-999-9999" 
+                                                 value="#{applicantController.selected.homephone}" 
+                                                 size="12" 
+                                                 styleClass="optionalLbl"/>
 
-        <ui:define name="content" >
+                                    <h:outputLabel for="mobilePhone" 
+                                                   value="Mobile phone"/>
+                                    <p:inputMask id="mobilePhone" 
+                                                 mask="(999)-999-9999" 
+                                                 value="#{applicantController.selected.mobilephone}" 
+                                                 size="12" 
+                                                 styleClass="optionalLbl"/>
 
-             
-        </ui:define>
-            <h:form>
-                <div>
-                     <p:dock position="bottom"  >  
-                <p:menuitem value="Home" icon="/images/dock/home.png" url="#"/>  
-                <p:menuitem value="Music" icon="/images/dock/music.png" url="#"/>  
-                <p:menuitem value="Video" icon="/images/dock/video.png" url="#"/>  
-                <p:menuitem value="Email" icon="/images/dock/email.png" url="#"/>  
-                <p:menuitem value="Portfolio" icon="/images/dock/portfolio.png" url="#"/>  
-                <p:menuitem value="Link" icon="/images/dock/link.png" url="#"/>  
-                <p:menuitem value="RSS" icon="/images/dock/rss.png" url="#"/>  
-                <p:menuitem value="History" icon="/images/dock/history.png" url="#"/>  
-            </p:dock>
-                </div>
+                                    <h:outputLabel for="workPhone" value="Work phone"/>
+                                    <p:inputMask id="workPhone" 
+                                                 mask="(999)-999-9999" 
+                                                 value="#{applicantController.selected.workphone}" 
+                                                 size="12" 
+                                                 styleClass="optionalLbl"/>
 
-                <p:growl id="growl" sticky="true" showDetail="true"  />
+                                </h:panelGrid>
+                            </p:panel>
+                        </p:tab>
+                        <p:tab title="Confirmation" id="confirmation">
+                            <p:messages/>
+                            <h:panelGrid columns="2">
+                                <h:outputText value="First Name" 
+                                              styleClass="optionalLbl"/>
+                                <h:outputText id="firstNameTxt" 
+                                              value="#{applicantController.selected.firstName}" />
+                                <h:outputText value="Middle Name" 
+                                              styleClass="optionalLbl"/>
+                                <h:outputText id="middleNameTxt" 
+                                              value="#{applicantController.selected.middleName}"/>
+                                <h:outputText  value="Last Name" 
+                                               styleClass="optionalLbl"/>
+                                <h:outputText id="lastNameTxt" 
+                                              value="#{applicantController.selected.lastName}" />
+                                <h:outputText  value="Date of Birth" 
+                                               styleClass="optionalLbl"/>
+                                <h:outputText id="birthDateTxt" 
+                                              value="#{applicantController.selected.birthDate}" />
 
-                <p:wizard flowListener="#{userWizard.onFlowProcess}" style="alignment-adjust: middle">
-                    <p:tab id="start" title="Start" >
+                                <h:outputText  value="Home Phone" 
+                                               styleClass="optionalLbl"/>
+                                <h:outputText id="homePhoneTxt" 
+                                              value="#{applicantController.selected.homephone}" />
 
-                        <p:panel header="Application Overview"  style="alignment-adjust: middle" >
+                                <h:outputText  value="Mobile Phone" 
+                                               styleClass="optionalLbl"/>
+                                <h:outputText id="mobilePhoneTxt" 
+                                              value="#{applicantController.selected.mobilephone}" />
+                                <h:outputText  value="Work Phone" 
+                                               styleClass="optionalLbl"/>
+                                <h:outputText id="workPhoneTxt" 
+                                              value="#{applicantController.selected.workphone}" />
+                                 <h:outputText  value="Email address" 
+                                               styleClass="optionalLbl"/>
+                                <h:outputText id="emailTxt" 
+                                              value="#{applicantController.selected.email}" />
 
-                            <h:panelGrid columns="2" columnClasses="label, value" styleClass="grid" style="font-size: 14px">
-
-                            <p>
-                                Thank you for applying for the Master of Science in Computer Science Program.
-                                Since you have successfully registered with us, you can return to this page as many times as
-                                you need to complete all the required information. 
-                            </p>
-                            <p>
-                                The application has been divided into
-                                seven sections for your convenience and ease of use.
-                            </p>
-                            <p style="margin-left:30px;">
-                                <ul>
-                                    <li>Start</li>
-                                    <li>Personal Data</li>
-                                    <li>English Proficiency</li>
-                                    <li>Education History</li>
-                                    <li>Professional Experience</li>
-                                    <li>Self Study</li>
-                                    <li>Select Program</li>
-                                </ul>
-                            </p>
-                            <p>
-                                As you provide your information to complete this application, you will be guided through
-                                the sections sequentially.
-                            </p>
-                            <p>
-                                Each time you complete a section and click on the right arrow button your information will
-                                be saved.
-                            </p>
-                            <p>
-                                When you have successfully completed all the sections, the Select Program tab will be activated.
-                                On this page you will be able to sign your application electronically and submit your application.
-                            </p>
-                            <p>
-                                <b>Important</b> When you click the submit button, you will no longer be able to change the data.
-                                If your submitted application gets approved for phase 2, you will receive instructions on how
-                                to take the online programming
-                                test. Here is a link to the <a target="_blank" href="http://mscs.mum.edu/application-steps.html">
-                                    Application Steps</a>.
-                            </p>
-                            <p>
-                                The information you supply below will be kept confidential.
-                            </p>
-                            <p>
-                                For information about the selection criteria, 
-                                please see <a target="_blank" href="http://mscs.mum.edu/requirements.html">
-                                    program requirements</a> page. 
-                                We kindly thank you for all your time and attention as you complete this process. 
-                                Good luck to you!
-                            </p>
-                            <p>
-                                If you have trouble filling out the form, please email Ms. Bahina at 
-                                <a href="mailto:intadmis4@mum.edu" target="_blank">intadmis4@mum.edu</a>
-                            </p>
-
+                                <p:commandButton id="submitButton"
+                                                 action="#{applicantController.create}" value="#{bundle.CreateApplicantSaveLink}" 
+                                                 ajax="false"/>
+                                 <br />
+                                <br />
+                                <h:commandLink action="#{applicantController.prepareList}" 
+                                               value="#{bundle.CreateApplicantShowAllLink}" 
+                                               immediate="true"/>
                             </h:panelGrid>
-
-                        </p:panel>
-                    </p:tab>
-
-                    <p:tab id="personal" title="Personal Data">
-
-                        <p:panel header="Previous Application"  style="width: 100%" >
-                            hi
-                        </p:panel>
-                    
-                        <p:panel header="Personal Details"  style="width: 100%" >
-
-                            <h:messages errorClass="error"/>
-
-                            <h:panelGrid columns="2" columnClasses="label, value" styleClass="grid">
-                                <h:outputText value="Firstname: *" styleClass="requiredLbl"/>
-                                <p:inputText required="true" label="Firstname"
-                                             value="#{userWizard.user.firstName}" />
-
-                                <h:outputText value="Lastname: *" styleClass="requiredLbl" />
-                                <p:inputText required="true" label="Lastname"
-                                             value="#{userWizard.user.lastName}" />
-
-                                <h:outputText value="Age: " styleClass="optionalLbl"/>
-                                <p:inputText value="#{userWizard.user.age}" />
-
-                                <h:outputText value="Skip to last: " styleClass="optionalLbl"/>
-                                <h:selectBooleanCheckbox value="#{userWizard.skip}" />
-                            </h:panelGrid>
-
-                        </p:panel>
-                    </p:tab>
-
-                    <p:tab id="address" title="Address">
-                        <p:panel header="Adress Details"  style="width: 100%" >
-
-                            <h:messages errorClass="error"/>
-
-                            <h:panelGrid columns="2" columnClasses="label, value">
-                                <h:outputText value="Street: " styleClass="requiredLbl"/>
-                                <p:inputText value="#{userWizard.user.addrLine1}" />
-
-                                <h:outputText value="Postal Code: " styleClass="requiredLbl"/>
-                                <p:inputText value="#{userWizard.user.addrZip}" />
-
-                                <h:outputText value="City: " styleClass="requiredLbl"/>
-                                <p:inputText value="#{userWizard.user.addrCity}" />
-
-                                <h:outputText value="Skip to last: " styleClass="optionalLbl"/>
-                                <h:selectBooleanCheckbox value="#{userWizard.skip}" />
-                            </h:panelGrid>
-                        </p:panel>
-                    </p:tab>
-
-                    <p:tab id="contact" title="Contact" >
-                        <p:panel header="Contact Information"  style="width: 100%">
-
-                            <h:messages errorClass="error"/>
-
-                            <h:panelGrid columns="2" columnClasses="label, value">
-                                <h:outputText value="Email: *" styleClass="requiredLbl"/>
-                                <p:inputText required="true" label="Email"
-                                             value="#{userWizard.user.email}" />
-
-                                <h:outputText value="Phone: " styleClass="requiredLbl"/>
-                                <p:inputText value="#{userWizard.user.mobilePhone}"/>
-
-                                <h:outputText value="Additional Info: " styleClass="requiredLbl"/>
-                                <p:inputText value="#{userWizard.user.info}"/>
-                            </h:panelGrid>
-                        </p:panel>
-                    </p:tab>
-
-                    <p:tab id="confirm" title="Confirmation">
-                        <p:panel header="Confirmation" style="width: 100%">
-
-                            <h:panelGrid id="confirmation" columns="6">
-                                <h:outputText value="Firstname: " styleClass="requiredLbl"/>
-                                <h:outputText styleClass="outputLabel"
-                                              value="#{userWizard.user.firstName}" />
-
-                                <h:outputText value="Lastname: " styleClass="requiredLbl"/>
-                                <h:outputText  styleClass="outputLabel"
-                                               value="#{userWizard.user.lastName}"/>
-
-                                <h:outputText value="Age: " styleClass="requiredLbl"/>
-                                <h:outputText styleClass="outputLabel"
-                                              value="#{userWizard.user.age}" />>
-
-                                <h:outputText value="Street: " styleClass="requiredLbl"/>
-                                <h:outputText styleClass="outputLabel"
-                                              value="#{userWizard.user.addrLine1}" />
-
-                                <h:outputText value="Postal Code: " styleClass="requiredLbl"/>
-                                <h:outputText styleClass="outputLabel"
-                                              value="#{userWizard.user.addrZip}" />
-
-                                <h:outputText value="City: " styleClass="requiredLbl"/>
-                                <h:outputText styleClass="outputLabel"
-                                              value="#{userWizard.user.addrCity}" />
-
-                                <h:outputText value="Email: " styleClass="requiredLbl"/>
-                                <h:outputText styleClass="outputLabel"
-                                              value="#{userWizard.user.email}" />
-
-                                <h:outputText value="Phone " styleClass="requiredLbl"/>
-                                <h:outputText styleClass="outputLabel"
-                                              value="#{userWizard.user.mobilePhone}"/>
-
-                                <h:outputText value="Info: " styleClass="requiredLbl"/>
-                                <h:outputText styleClass="outputLabel"
-                                              value="#{userWizard.user.info}" />
-
-                                <h:outputText />
-                                <h:outputText />
-                            </h:panelGrid>
-
-                            <p:commandButton value="Submit" update="growl" 
-                                             actionListener="#{userWizard.save}"/>
-
-                        </p:panel>
-                    </p:tab>
-
-                </p:wizard>
+                        </p:tab>
+                    </p:wizard>                   
+                </h:panelGrid>
             </h:form>
-
-        </ui:define> 
-
-    </ui:composition>
+         
+      
+         </ui:define>
+      </ui:composition>
 </html>
-
 

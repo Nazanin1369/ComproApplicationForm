@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:p="http://primefaces.org/ui"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:f="http://java.sun.com/jsf/core">
+
+
+    <ui:composition template="../pages/applicantTemplate.xhtml">
+        <ui:define name="top">
+            <img src="../resources/images/footer_logo.png" width="188" height="78" alt="footer_logo"/>
+        </ui:define>
+
+        <ui:define name="content">
+          
+
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+            
+
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListApplicantEmpty}" rendered="#{applicantController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{applicantController.items.rowCount > 0}">
+                    <h:outputText value="#{applicantController.pagination.pageFirstItem + 1}..#{applicantController.pagination.pageLastItem + 1}/#{applicantController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{applicantController.previous}" value="#{bundle.Previous} #{applicantController.pagination.pageSize}" rendered="#{applicantController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{applicantController.next}" value="#{bundle.Next} #{applicantController.pagination.pageSize}" rendered="#{applicantController.pagination.hasNextPage}"/>&nbsp;
+                    <p:dataTable var="item" value="#{applicantController.items}">
+                        <p:column headerText="#{bundle.ListApplicantTitle_id}">
+                            <h:outputText value="#{item.id}" />
+                        </p:column>
+
+                        <p:column headerText="#{bundle.ListApplicantTitle_firstName}">
+                            <h:outputText value="#{item.firstName}" />
+                        </p:column>
+
+                        <p:column headerText="#{bundle.ListApplicantTitle_middleName}">
+                            <h:outputText value="#{item.middleName}" />
+                        </p:column>
+
+                        <p:column headerText="#{bundle.ListApplicantTitle_lastName}">
+                            <h:outputText value="#{item.lastName}" />
+                        </p:column>
+
+                        <p:column headerText="#{bundle.ListApplicantTitle_birthDate}">
+                            <h:outputText value="#{item.birthDate}" />
+                        </p:column>
+
+                        <p:column headerText="#{bundle.ListApplicantTitle_homephone}">
+                            <h:outputText value="#{item.homephone}" />
+                        </p:column>
+
+                        <p:column headerText="#{bundle.CreateApplicantLabel_mobilephone}">
+                            <h:outputText value="#{item.mobilephone}" />
+                        </p:column>
+
+                        <p:column headerText="#{bundle.CreateApplicantLabel_email}">
+                            <h:outputText value="#{item.email}" />
+                        </p:column>
+
+                        <p:column headerText="#{bundle.CreateApplicantLabel_email}">
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{applicantController.prepareView}" 
+                                           value="#{bundle.ListApplicantViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{applicantController.prepareEdit}" 
+                                           value="#{bundle.ListApplicantEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{applicantController.destroy}" 
+                                           value="#{bundle.ListApplicantDestroyLink}"/>
+                        </p:column>
+                    </p:dataTable>
+                </h:panelGroup>
+                <br />
+
+
+            </h:form>
+        </ui:define>
+
+    </ui:composition>
+
+
+</html>
+

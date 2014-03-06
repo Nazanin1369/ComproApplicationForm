@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    
+
+        <ui:composition template="../pages/applicantTemplate.xhtml">
+            <ui:define name="top">
+                <img src="../resources/images/footer_logo.png" width="188" height="78" alt="footer_logo"/>
+            </ui:define>
+
+            <ui:define name="content">
+                <p:panel header="Applicant Information">
+                    <h:panelGrid columns="2">
+                        <h:outputText value="First Name" styleClass="optionalLbl"/>
+                        <h:outputText id="firstName" value="#{applicantController.selected.firstName}" />
+                        <h:outputText value="Middle Name" styleClass="optionalLbl"/>
+                        <h:outputText id="middleName" value="#{applicantController.selected.middleName}"/>
+                        <h:outputText  value="Last Name" styleClass="optionalLbl"/>
+                        <h:outputText id="lastName" value="#{applicantController.selected.lastName}" />
+                        <h:outputText  value="Date of Birth" styleClass="optionalLbl"/>
+                        <h:outputText id="birthDate" value="#{applicantController.selected.birthDate}" />
+                        <h:outputText value="Address" styleClass="optionalLbl"/>
+
+                        <h:outputText  value="Home Phone" styleClass="optionalLbl"/>
+                        <h:outputText id="homephone" value="#{applicantController.selected.homephone}" />
+
+                        <h:outputText  value="Mobile Phone" styleClass="optionalLbl"/>
+                        <h:outputText id="mobilephone" value="#{applicantController.selected.mobilephone}" />
+                        <h:outputText  value="Work Phone" styleClass="optionalLbl"/>
+                        <h:outputText id="homephone" value="#{applicantController.selected.workphone}" />
+                         <h:outputText  value="Email address" styleClass="optionalLbl"/>
+                         <h:outputText id="email" value="#{applicantController.selected.email}" />
+                    </h:panelGrid>
+                </p:panel>
+            </ui:define>
+
+        </ui:composition>
+
+    
+</html>
+

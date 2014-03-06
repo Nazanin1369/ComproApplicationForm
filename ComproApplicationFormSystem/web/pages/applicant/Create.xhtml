@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateApplicantTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateApplicantLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{applicantController.selected.id}" title="#{bundle.CreateApplicantTitle_id}" required="true" requiredMessage="#{bundle.CreateApplicantRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateApplicantLabel_firstName}" for="firstName" />
+                    <h:inputText id="firstName" value="#{applicantController.selected.firstName}" title="#{bundle.CreateApplicantTitle_firstName}" />
+                    <h:outputLabel value="#{bundle.CreateApplicantLabel_middleName}" for="middleName" />
+                    <h:inputText id="middleName" value="#{applicantController.selected.middleName}" title="#{bundle.CreateApplicantTitle_middleName}" />
+                    <h:outputLabel value="#{bundle.CreateApplicantLabel_lastName}" for="lastName" />
+                    <h:inputText id="lastName" value="#{applicantController.selected.lastName}" title="#{bundle.CreateApplicantTitle_lastName}" />
+                    <h:outputLabel value="#{bundle.CreateApplicantLabel_birthDate}" for="birthDate" />
+                    <h:inputText id="birthDate" value="#{applicantController.selected.birthDate}" title="#{bundle.CreateApplicantTitle_birthDate}" />
+                    <h:outputLabel value="#{bundle.CreateApplicantLabel_homephone}" for="homephone" />
+                    <h:inputText id="homephone" value="#{applicantController.selected.homephone}" title="#{bundle.CreateApplicantTitle_homephone}" />
+                    <h:outputLabel value="#{bundle.CreateApplicantLabel_mobilephone}" for="mobilephone" />
+                    <h:inputText id="mobilephone" value="#{applicantController.selected.mobilephone}" title="#{bundle.CreateApplicantTitle_mobilephone}" />
+                    <h:outputLabel value="#{bundle.CreateApplicantLabel_workphone}" for="workphone" />
+                    <h:inputText id="workphone" value="#{applicantController.selected.workphone}" title="#{bundle.CreateApplicantTitle_workphone}" />
+                    <h:outputLabel value="#{bundle.CreateApplicantLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{applicantController.selected.email}" title="#{bundle.CreateApplicantTitle_email}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{applicantController.create}" value="#{bundle.CreateApplicantSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{applicantController.prepareList}" value="#{bundle.CreateApplicantShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateApplicantIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
